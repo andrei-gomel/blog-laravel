@@ -51,8 +51,6 @@ class PostService
                 $data['main_image'] = Storage::disk('public')->put('/images', $data['main_image']);
             }
 
-            //$post = Post::firstOrCreate($data);
-
             $post->update($data);
             $post->tags()->sync($tagIds);
             DB::commit();
